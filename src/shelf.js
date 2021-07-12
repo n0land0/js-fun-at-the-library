@@ -14,21 +14,32 @@ function unshelfBook(bookTitle, shelf) {
 }
 
 function listTitles(shelf) {
-  var titles = [];
-  for (var i = 0; i < shelf.length; i++) {
-    titles.push(shelf[i].title);
+  // var titles = [];
+  // for (var i = 0; i < shelf.length; i++) {
+  //   titles.push(shelf[i].title);
+  // }
+  // return(titles.join(", "));
+  var titles = `${shelf[0].title}`;
+  for (var i = 1; i < shelf.length; i++) {
+    titles = `${titles}, ${shelf[i].title}`;
   }
-  return(titles.join(", "));
+  return titles;
 }
 
 function searchShelf(shelf, bookTitle) {
-  var isOnShelf = false;
+  // var isOnShelf = false;
+  // for (var i = 0; i < shelf.length; i++) {
+  //   if (shelf[i].title === bookTitle) {
+  //     isOnShelf = true;
+  //   }
+  // }
+  // return isOnShelf;
   for (var i = 0; i < shelf.length; i++) {
     if (shelf[i].title === bookTitle) {
-      isOnShelf = true;
+      return true;
     }
   }
-  return isOnShelf;
+  return false;
 }
 
 module.exports = {
